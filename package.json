@@ -1,0 +1,15 @@
+{
+  "name": "brainpass-xtension",
+  "version": "1.0.0",
+  "description": "This is the extension that boosts your productivity by providing some problem to solve before you want to do some tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Danish Shaikh",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
