@@ -6,7 +6,7 @@ const UrlLists = ({ blockedSites, onDeleteUrl }) => {
   }
 
   return (
-    <div className="border border-gray-300 rounded-md p-1 bg-gray-50">
+    <div className="border border-gray-300 rounded-md p-1 bg-gray-50 shadow-sm">
       <h3 className="text-lg text-center font-semibold mb-2">Blocked URLs</h3>
       <ul>
         {blockedSites.map((blockedSite, index) => {

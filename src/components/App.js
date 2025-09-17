@@ -38,10 +38,19 @@ const App = () => {
   };
 
   return (
-    <div className="p-4 w-70">
-      <h1 className="text-3xl font-bold mb-4 text-center">BrainPass</h1>
-      <AddUrl className="mb-4" onAddUrl={handleAddUrl} />
-      <UrlLists className="mb-4" blockedSites={blockedUrls} onDeleteUrl={handleDeleteUrl} />
+    <div className="w-70">
+      <div className="px-4 py-4 border border-gray-300 mb-4 shadow-lg flex justify-between items-center">
+        <h1 className="text-3xl font-bold">BrainPass</h1>
+        
+      </div>
+      <div className="p-4">
+        <AddUrl className="mb-4" onAddUrl={handleAddUrl} />
+        <UrlLists
+          className="mb-4"
+          blockedSites={blockedUrls}
+          onDeleteUrl={handleDeleteUrl}
+        />
+      </div>
     </div>
   );
 };

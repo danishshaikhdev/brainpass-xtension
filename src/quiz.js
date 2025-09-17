@@ -7,6 +7,6 @@ import "./index.css";
 const root = ReactDOM.createRoot(document.getElementById("quiz-root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Quiz />
   </React.StrictMode>
 );
