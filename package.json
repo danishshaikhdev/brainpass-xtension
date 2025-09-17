@@ -2,7 +2,7 @@
   "name": "brainpass-xtension",
   "version": "1.0.0",
   "description": "This is the extension that boosts your productivity by providing some problem to solve before you want to do some tasks",
-  "main": "index.js",
+  "main": "quiz.js",
   "scripts": {
     "start": "parcel public/popup.html",
     "build": "parcel build public/popup.html public/quiz.html --dist-dir build"
