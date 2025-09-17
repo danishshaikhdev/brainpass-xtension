@@ -6,9 +6,9 @@
   "permissions": ["storage", "webRequest", "cookies"],
   "host_permissions": ["<all_urls>"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "public/popup.html"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.js"
   }
 }
