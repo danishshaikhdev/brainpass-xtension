@@ -5,43 +5,46 @@ import UrlLists from "./UrlLists";
 const App = () => {
   const [blockedUrls, setBlockedUrls] = useState([]);
 
-  //   useEffect(() => {
-  //     chrome.storage.local.get(['blockedSites'], (result) => {
-  //         setBlockedUrls(result.blockedSites || []);
-  //     })
-  //   }, []);
+  useEffect(() => {
+    // Fetches the list of blocked URLs from Chrome's local storage.
+    // The key 'blockedSites' is used to access the data.
+    chrome.storage.local.get(["blockedSites"], (result) => {
+      // Updates the component's state with the fetched data.
+      // It defaults to an empty array if no data is found.
+      setBlockedUrls(result.blockedSites || []);
+    });
+  }, []);
 
   const handleAddUrl = (url) => {
-    console.log(`Adding URL: ${url}`);
-    // You can manually add to state for now to test the UI
+    // Optimistically updates the UI by adding the new URL to the state immediately.
     setBlockedUrls([...blockedUrls, url]);
-    /*
-    chrome.runtime.sendMessage({ type: 'ADD_URL', url }, (response) => {
+
+    // Sends a message to the background script to save the URL to storage.
+    chrome.runtime.sendMessage({ type: "ADD_URL", url }, (response) => {
+      // After the background script responds, it updates the state with the confirmed list from storage.
       if (response && response.success) {
         setBlockedUrls(response.urls);
       }
     });
-    */
   };
 
   const handleDeleteUrl = (url) => {
-    console.log(`Deleting URL: ${url}`);
-    // Manually filter state to test the UI
+    // Optimistically updates the UI by removing the URL from the state immediately.
     setBlockedUrls(blockedUrls.filter((u) => u !== url));
-    /*
-    chrome.runtime.sendMessage({ type: 'DELETE_URL', url }, (response) => {
+
+    // Sends a message to the background script to remove the URL from storage.
+    chrome.runtime.sendMessage({ type: "DELETE_URL", url }, (response) => {
+      // After the background script responds, it updates the state with the confirmed list from storage.
       if (response && response.success) {
         setBlockedUrls(response.urls);
       }
     });
-    */
   };
 
   return (
     <div className="w-70">
       <div className="px-4 py-4 border border-gray-300 mb-4 shadow-lg flex justify-between items-center">
         <h1 className="text-3xl font-bold">BrainPass</h1>
-        
       </div>
       <div className="p-4">
         <AddUrl className="mb-4" onAddUrl={handleAddUrl} />

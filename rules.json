@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "redirect",
+            "redirect": {
+                "extensionPath": "public/quiz.html"
+            }
+        },
+        "condition": {
+            "urlFilter": "https://www.youtube.com/*",
+            "resource_type": ["main_frame"]
+        }
+    }
+]

@@ -3,7 +3,13 @@
   "description": "Block distracting websites and boost your productivity with BrainPass.",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["storage", "webRequest", "cookies"],
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequestWithHostAccess",
+    "storage",
+    "cookies"
+  ],
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "public/popup.html"
