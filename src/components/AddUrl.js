@@ -11,7 +11,10 @@ const AddUrl = ({ onAddUrl }) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="w-full mb-4 flex items-center justify-between">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full mb-4 flex items-center justify-between"
+    >
       <input
         type="text"
         value={url}
