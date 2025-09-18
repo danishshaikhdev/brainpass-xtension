@@ -6,12 +6,9 @@ const App = () => {
   const [blockedUrls, setBlockedUrls] = useState([]);
 
   useEffect(() => {
-    // Fetches the list of blocked URLs from Chrome's local storage.
-    // The key 'blockedSites' is used to access the data.
-    chrome.storage.local.get(["blockedSites"], (result) => {
-      // Updates the component's state with the fetched data.
-      // It defaults to an empty array if no data is found.
-      setBlockedUrls(result.blockedSites || []);
+    // 1. Initial fetch of data when the component mounts.
+    chrome.storage.local.get(["blockedUrls"], (result) => {
+      setBlockedUrls(result.blockedUrls || []);
     });
   }, []);
 
