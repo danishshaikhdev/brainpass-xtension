@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "This is the extension that boosts your productivity by providing some problem to solve before you want to do some tasks",
   "scripts": {
-    "start": "parcel public/popup.html",
-    "build": "parcel manifest.json --dist-dir build"
+    "dev": "parcel watch manifest.json --dist-dir build --no-hmr",
+    "build": "parcel build manifest.json --dist-dir build"
   },
   "author": "Danish Shaikh",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.0",
     "@tailwindcss/postcss": "^4.1.13",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@parcel/config-webextension": "^2.15.4",
-    "parcel": "^2.15.4"
+    "buffer": "^6.0.3",
+    "parcel": "^2.15.4",
+    "supabase": "^2.109.0"
   }
 }

@@ -2,27 +2,38 @@ import React from "react";
 
 const UrlLists = ({ blockedSites, onDeleteUrl }) => {
   if (blockedSites.length === 0) {
-    return <p className="text-gray-500 text-center">No blocked URLs found.</p>;
+    return (
+      <p className="text-sm text-slate-400 text-center py-4 border border-dashed border-slate-200 rounded-lg">
+        No blocked sites yet.
+      </p>
+    );
   }
 
   return (
-    <div className="border border-gray-300 rounded-md p-1 bg-gray-50 shadow-sm">
-      <h3 className="text-lg text-center font-semibold mb-2">Blocked URLs</h3>
-      <ul>
-        {blockedSites.map((blockedSite, index) => {
-          return (
-            <li
-              key={index}
-              className="border border-gray-300 py-1 px-2 rounded flex justify-between items-center mb-2 bg-white"
-            >
-              {blockedSite}
-
-              <button className="text-red-500" onClick={() => onDeleteUrl(blockedSite)}>delete</button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className="max-h-52 overflow-y-auto space-y-2">
+      {blockedSites.map((site) => (
+        <li
+          key={site}
+          className="flex items-center justify-between gap-2 border border-slate-200 rounded-lg px-3 py-2 bg-slate-50"
+        >
+          <span className="flex items-center gap-2.5 text-sm text-slate-700 truncate">
+            <span className="w-6 h-6 shrink-0 rounded-md bg-indigo-100 flex items-center justify-center text-xs font-semibold text-indigo-600 uppercase">
+              {site[0]}
+            </span>
+            <span className="truncate">{site}</span>
+          </span>
+          <button
+            onClick={() => onDeleteUrl(site)}
+            aria-label={`Remove ${site}`}
+            className="shrink-0 text-slate-400 hover:text-red-500 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 7h12M9 7V5h6v2m-8 0 .5 12a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1L17 7" />
+            </svg>
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 };
 
